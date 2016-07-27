@@ -173,7 +173,7 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
 				update_option( 'theme_mods_' . $this->child_slug, $parent_settings );
 			}
 
-			wp_die( esc_html__( 'All done! You are using a child theme now!', '{%= text_domain %}' ) );
+			wp_die( esc_html__( 'All done! You are using a child theme now! Please refresh the page.', '{%= text_domain %}' ) );
 		
 		} // /activate_child_theme
 
