@@ -7,6 +7,8 @@
 * If a child theme is not active, the user will see a WP notice with an "Activate" link **on the Theme Editor screen**
 * When clicked, a child theme is created (if needed) and enabled
 
+**Note**: *The child theme generator does not work in WordPress multisite installation due to theme file editor not being available in single site dashboard.*
+
 ## Development Setup
 
 This script uses `text_domain` development variable/prefix. Search & replace the `{%= text_domain %}` to match the parent theme text domain.
