@@ -9,6 +9,7 @@
  * 
  * Modifications:
  * - localization text domain
+ * - `style.css` file default content
  * - `functions.php` file default content
  *
  * Used development prefixes:
@@ -165,16 +166,13 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
 
 
         function style_css() {
-            $name = $this->theme->get( 'Name' ) . ' Child';
-            $uri = $this->theme->get( 'ThemeURI' );
-            $parent = $this->theme->get_stylesheet();
-            $output = "/*
-Theme Name:     {$name}
-Theme URI:      {$uri}
-Template:       {$parent}
-Version:        1.0
-*/
-";
+            $output  = '/**' . "\r\n";
+            $output .= ' * Theme Name: ' . $this->theme->get( 'Name' ) . ' Child' . "\r\n";
+            $output .= ' * Template: ' . $this->theme->get_stylesheet() . "\r\n";
+            $output .= ' * Version: 1.0' . "\r\n";
+            $output .= ' * Description: This is a child theme of ' . $this->theme->get( 'Name' ) . "\r\n";
+            $output .= ' */' . "\r\n";
+            
             return apply_filters( 'uct_style_css', $output );
         }
 
