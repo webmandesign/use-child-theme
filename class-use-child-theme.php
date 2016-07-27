@@ -5,8 +5,11 @@
  * @link  https://github.com/webmandesign/use-child-theme
  * @link  https://github.com/FacetWP/use-child-theme
  * 
- * This is a fork of Use Child Theme by FacetWP modified 
- * for use in WebMan WordPress Theme Framework.
+ * This is a fork of Use Child Theme by FacetWP modified for use 
+ * in WebMan WordPress Theme Framework.
+ * 
+ * This does not work in WordPress multisite installation due to theme 
+ * file editor not being available in single site dashboard.
  * 
  * Modifications:
  * - Localization text domain
