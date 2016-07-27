@@ -91,8 +91,8 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
 
         <div class="notice notice-error uct-notice is-dismissible">
             <p>
-                <?php printf( esc_html__( 'Please use a %s child theme to make changes', 'YOUR_THEME_SLUG' ), $this->theme->get( 'Name' ) ); ?>
-                <a class="uct-activate" href="javascript:;"><?php esc_html_e( 'Activate now', 'YOUR_THEME_SLUG' ); ?></a>
+                <?php printf( esc_html__( 'Please use a %s child theme to make changes!', '{%= text_domain %}' ), $this->theme->get( 'Name' ) ); ?>
+                <a class="uct-activate" href="javascript:;"><?php esc_html_e( 'Activate now &raquo;', '{%= text_domain %}' ); ?></a>
             </p>
         </div>
 <?php
@@ -139,7 +139,7 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
                 update_option( 'theme_mods_' . $this->child_slug, $parent_settings );
             }
 
-            wp_die( esc_html__( 'All done! You are using a child theme now!', 'YOUR_THEME_SLUG' ) );
+            wp_die( esc_html__( 'All done! You are using a child theme now!', '{%= text_domain %}' ) );
         }
 
 
@@ -160,7 +160,7 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
                 }
             }
             else {
-                wp_die( esc_html__( 'Error: theme folder not writable', 'YOUR_THEME_SLUG' ) );
+                wp_die( esc_html__( 'Error: theme folder not writable!', '{%= text_domain %}' ) );
             }
         }
 
