@@ -173,6 +173,10 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
             $output .= ' * Version: 1.0' . "\r\n";
             $output .= ' * Description: This is a child theme of ' . $this->theme->get( 'Name' ) . "\r\n";
             $output .= ' */' . "\r\n";
+            $output .= "\r\n";
+            $output .= "\r\n";
+            $output .= "\r\n";
+            $output .= '/* Put your custom CSS styles below... */' . "\r\n";
             
             return apply_filters( 'uct_style_css', $output );
         }
