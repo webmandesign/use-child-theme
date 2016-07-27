@@ -12,7 +12,6 @@
  * - `functions.php` file default content
  *
  * Used development prefixes:
- * - theme_slug
  * - text_domain
  *
  * @version 1.0
