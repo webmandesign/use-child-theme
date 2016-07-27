@@ -72,30 +72,31 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
             if ( ! isset( $screen->id ) || ! in_array( $screen->id, (array) $admin_notices_screen_id ) ) {
                 return;
             }
-?>
-        <script>
-        (function($) {
-            $(function() {
-                $(document).on('click', '.uct-activate', function() {
-                    $.post(ajaxurl, { action: 'uct_activate' }, function(response) {
-                        $('.uct-notice p').html(response);
+            
+            ?>
+            <script>
+            (function($) {
+                $(function() {
+                    $(document).on('click', '.uct-activate', function() {
+                        $.post(ajaxurl, { action: 'uct_activate' }, function(response) {
+                            $('.uct-notice p').html(response);
+                        });
+                    });
+    
+                    $(document).on('click', '.uct-notice .notice-dismiss', function() {
+                        $.post(ajaxurl, { action: 'uct_dismiss' });
                     });
                 });
-
-                $(document).on('click', '.uct-notice .notice-dismiss', function() {
-                    $.post(ajaxurl, { action: 'uct_dismiss' });
-                });
-            });
-        })(jQuery);
-        </script>
-
-        <div class="notice notice-error uct-notice is-dismissible">
-            <p>
-                <?php printf( esc_html__( 'Please use a %s child theme to make changes!', '{%= text_domain %}' ), $this->theme->get( 'Name' ) ); ?>
-                <a class="uct-activate" href="javascript:;"><?php esc_html_e( 'Activate now &raquo;', '{%= text_domain %}' ); ?></a>
-            </p>
-        </div>
-<?php
+            })(jQuery);
+            </script>
+    
+            <div class="notice notice-error uct-notice is-dismissible">
+                <p>
+                    <?php printf( esc_html__( 'Please use a %s child theme to make changes!', '{%= text_domain %}' ), $this->theme->get( 'Name' ) ); ?>
+                    <a class="uct-activate" href="javascript:;"><?php esc_html_e( 'Activate now &raquo;', '{%= text_domain %}' ); ?></a>
+                </p>
+            </div>
+            <?php
         }
 
 
