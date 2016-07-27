@@ -2,6 +2,8 @@
 /**
  * WebMan Design Use Child Theme
  * 
+ * @link  https://github.com/webmandesign/use-child-theme
+ * 
  * This is a fork of Use Child Theme 0.4 by FacetWP modified 
  * for use in WebMan Design themes.
  * 
