@@ -224,7 +224,8 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
 
 		function functions_php() {
 
-			$output  = '/**' . "\r\n";
+			$output  = '<?php' . "\r\n";
+			$output .= '/**' . "\r\n";
 			$output .= ' * Child theme functions' . "\r\n";
 			$output .= ' *' . "\r\n";
 			$output .= ' * @package  ' . $this->theme->get( 'Name' ) . ' Child' . "\r\n";
