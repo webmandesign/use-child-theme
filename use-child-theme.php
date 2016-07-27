@@ -179,13 +179,29 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
 
 
         function functions_php() {
-            $output = "<?php
-
-function child_enqueue_styles() {
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-}
-add_action( 'wp_enqueue_scripts', 'child_enqueue_styles' );
-";
+            $output  = '/**' . "\r\n";
+            $output .= ' * Child theme functions' . "\r\n";
+            $output .= ' *' . "\r\n";
+            $output .= ' * @package  ' . $this->theme->get( 'Name' ) . ' Child' . "\r\n";
+            $output .= ' */' . "\r\n";
+            $output .= "\r\n";
+            $output .= "\r\n";
+            $output .= "\r\n";
+            $output .= '/**' . "\r\n";
+            $output .= ' * Enqueue parent theme stylesheet the right way' . "\r\n";
+            $output .= ' */' . "\r\n";
+            $output .= 'function child_theme_enqueue_parent_styles() {' . "\r\n";
+            $output .= "\t" . "if ( current_theme_supports( 'child-theme-stylesheet' ) ) { return; }" . "\r\n";
+            $output .= "\t" . "wp_enqueue_style( 'parent-theme-styles', get_template_directory_uri() . '/style.css' );" . "\r\n";
+            $output .= "\t" . "wp_enqueue_style( 'child-theme-styles', get_stylesheet_uri() );" . "\r\n";
+            $output .= '}' . "\r\n";
+            $output .= "\r\n";
+            $output .= "add_action( 'wp_enqueue_scripts', 'child_theme_enqueue_parent_styles', 1000 );\r\n";
+            $output .= "\r\n";
+            $output .= "\r\n";
+            $output .= "\r\n";
+            $output .= '/* Put your custom PHP code below... */' . "\r\n";
+            
             return apply_filters( 'uct_functions_php', $output );
         }
     }
