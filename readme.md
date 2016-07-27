@@ -1,6 +1,6 @@
 # WebMan Design Use Child Theme
 
-*This is a fork of **[Use Child Theme](https://github.com/FacetWP/use-child-theme) by FacetWP** modified for use in WebMan Design themes out of the box.*
+*This is a fork of [**Use Child Theme**](https://github.com/FacetWP/use-child-theme) by [**FacetWP**](https://facetwp.com/) modified for use in WebMan Design themes out of the box.*
 
 ## How It Works
 
