@@ -3,21 +3,30 @@
  * WebMan Design Use Child Theme
  * 
  * @link  https://github.com/webmandesign/use-child-theme
- * 
- * This is a fork of Use Child Theme 0.4 by FacetWP modified 
- * for use in WebMan Design themes.
- * 
  * @link  https://github.com/FacetWP/use-child-theme
  * 
+ * This is a fork of Use Child Theme by FacetWP modified 
+ * for use in WebMan WordPress Theme Framework.
+ * 
  * Modifications:
- * - localization text domain
+ * - Localization text domain
  * - `style.css` file default content
  * - `functions.php` file default content
+ * - Reformating the code
+ * - Renaming the file
  *
- * Used development prefixes:
+ * Used development variables/prefixes:
  * - text_domain
  *
- * @version 1.0
+ * @version 1.1
+ */
+ 
+ 
+ 
+/*
+ * Use Child Theme
+ * A drop-in to make it easy to use WordPress child themes
+ * @version 0.4
  */
 
 defined( 'ABSPATH' ) or exit;
