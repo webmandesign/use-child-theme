@@ -13,6 +13,4 @@ This script uses `text_domain` development variable/prefix. Search & replace the
 
 ## Changelog
 
-### 1.0
-
-* Initial release (derived from original [Use Child Theme version 0.4](https://github.com/FacetWP/use-child-theme/releases/tag/0.4) with ["Fixing text domain issue" commit](https://github.com/FacetWP/use-child-theme/pull/19) included)
+For complete changelog please see [release notes](https://github.com/webmandesign/use-child-theme/releases).
