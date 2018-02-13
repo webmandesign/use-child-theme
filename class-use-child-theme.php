@@ -1,16 +1,15 @@
-<?php
 /**
  * WebMan Design Use Child Theme
- * 
+ *
  * @link  https://github.com/webmandesign/use-child-theme
  * @link  https://github.com/FacetWP/use-child-theme
- * 
- * This is a fork of Use Child Theme by FacetWP modified for use 
+ *
+ * This is a fork of Use Child Theme by FacetWP modified for use
  * in WebMan WordPress Theme Framework.
- * 
- * This does not work in WordPress multisite installation due to theme 
+ *
+ * This does not work in WordPress multisite installation due to theme
  * file editor not being available in single site dashboard.
- * 
+ *
  * Modifications:
  * - Localization text domain
  * - `style.css` file default content
@@ -21,11 +20,11 @@
  * Used development variables/prefixes:
  * - text_domain
  *
- * @version 1.2.1
+ * @version 1.2.2
  */
- 
- 
- 
+
+
+
 /**
  * Use Child Theme
  * A drop-in to make it easy to use WordPress child themes
@@ -84,7 +83,7 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
 			add_action( 'wp_ajax_uct_activate', array( $this, 'activate_child_theme' ) );
 			add_action( 'wp_ajax_uct_dismiss', array( $this, 'dismiss_notice' ) );
 			add_action( 'admin_notices', array( $this, 'admin_notices' ) );
-		
+
 		} // /admin_init
 
 
@@ -97,7 +96,7 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
 			if ( ! isset( $screen->id ) || ! in_array( $screen->id, (array) $admin_notices_screen_id ) ) {
 				return;
 			}
-			
+
 			?>
 
 			<script>
@@ -108,14 +107,14 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
 							$('.uct-notice p').html(response);
 						});
 					});
-	
+
 					$(document).on('click', '.uct-notice .notice-dismiss', function() {
 						$.post(ajaxurl, { action: 'uct_dismiss' });
 					});
 				});
 			})(jQuery);
 			</script>
-	
+
 			<div class="notice notice-error uct-notice is-dismissible">
 				<p>
 					<?php printf( esc_html__( 'Please use a %s child theme to make changes!', '{%= text_domain %}' ), $this->theme->get( 'Name' ) ); ?>
@@ -152,7 +151,7 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
 			}
 
 			return false;
-		
+
 		} // /has_child_theme
 
 
@@ -177,7 +176,7 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
 			switch_theme( $this->child_slug );
 
 			wp_die( esc_html__( 'All done! You are using a child theme now! Please refresh the page.', '{%= text_domain %}' ) );
-		
+
 		} // /activate_child_theme
 
 
@@ -207,46 +206,46 @@ if ( ! class_exists( 'Use_Child_Theme' ) && is_admin() ) {
 
 
 		function style_css() {
-		
-			$output  = '/**' . "\r\n";
-			$output .= ' * Theme Name: ' . $this->theme->get( 'Name' ) . ' Child' . "\r\n";
-			$output .= ' * Template: ' . $this->theme->get_stylesheet() . "\r\n";
-			$output .= ' * Version: 1.0.0' . "\r\n";
-			$output .= ' * Description: This is a child theme of ' . $this->theme->get( 'Name' ) . "\r\n";
-			$output .= ' */' . "\r\n";
-			$output .= "\r\n";
-			$output .= '/* Put your custom CSS styles below... */' . "\r\n";
-			
+
+			$output  = '/**' . PHP_EOL;
+			$output .= ' * Theme Name: ' . $this->theme->get( 'Name' ) . ' Child' . PHP_EOL;
+			$output .= ' * Template: ' . $this->theme->get_stylesheet() . PHP_EOL;
+			$output .= ' * Version: 1.0.0' . PHP_EOL;
+			$output .= ' * Description: This is a child theme of ' . $this->theme->get( 'Name' ) . PHP_EOL;
+			$output .= ' */' . PHP_EOL;
+			$output .= PHP_EOL;
+			$output .= '/* Put your custom CSS styles below... */' . PHP_EOL;
+
 			return apply_filters( 'uct_style_css', $output );
-		
+
 		} // /style_css
 
 
 
 		function functions_php() {
 
-			$output  = '<?php' . "\r\n";
-			$output .= '/**' . "\r\n";
-			$output .= ' * Child theme functions' . "\r\n";
-			$output .= ' *' . "\r\n";
-			$output .= ' * @package  ' . $this->theme->get( 'Name' ) . ' Child' . "\r\n";
-			$output .= ' */' . "\r\n";
-			$output .= "\r\n";
-			$output .= '/**' . "\r\n";
-			$output .= ' * Enqueue parent theme stylesheet the right way' . "\r\n";
-			$output .= ' */' . "\r\n";
-			$output .= 'function child_theme_enqueue_parent_styles() {' . "\r\n";
-			$output .= "\t" . "if ( current_theme_supports( 'child-theme-stylesheet' ) ) { return; }" . "\r\n";
-			$output .= "\t" . "wp_enqueue_style( 'parent-theme-styles', get_template_directory_uri() . '/style.css' );" . "\r\n";
-			$output .= "\t" . "wp_enqueue_style( 'child-theme-styles', get_stylesheet_uri() );" . "\r\n";
-			$output .= '}' . "\r\n";
-			$output .= "\r\n";
-			$output .= "add_action( 'wp_enqueue_scripts', 'child_theme_enqueue_parent_styles', 1000 );\r\n";
-			$output .= "\r\n";
-			$output .= '/* Put your custom PHP code below... */' . "\r\n";
-			
+			$output  = '<?php' . PHP_EOL;
+			$output .= '/**' . PHP_EOL;
+			$output .= ' * Child theme functions' . PHP_EOL;
+			$output .= ' *' . PHP_EOL;
+			$output .= ' * @package  ' . $this->theme->get( 'Name' ) . ' Child' . PHP_EOL;
+			$output .= ' */' . PHP_EOL;
+			$output .= PHP_EOL;
+			$output .= '/**' . PHP_EOL;
+			$output .= ' * Enqueue parent theme stylesheet the right way' . PHP_EOL;
+			$output .= ' */' . PHP_EOL;
+			$output .= 'function child_theme_enqueue_parent_styles() {' . PHP_EOL;
+			$output .= "\t" . "if ( current_theme_supports( 'child-theme-stylesheet' ) ) { return; }" . PHP_EOL;
+			$output .= "\t" . "wp_enqueue_style( 'parent-theme-styles', get_template_directory_uri() . '/style.css' );" . PHP_EOL;
+			$output .= "\t" . "wp_enqueue_style( 'child-theme-styles', get_stylesheet_uri() );" . PHP_EOL;
+			$output .= '}' . PHP_EOL;
+			$output .= PHP_EOL;
+			$output .= "add_action( 'wp_enqueue_scripts', 'child_theme_enqueue_parent_styles', 1000 );" . PHP_EOL;
+			$output .= PHP_EOL;
+			$output .= '/* Put your custom PHP code below... */' . PHP_EOL;
+
 			return apply_filters( 'uct_functions_php', $output );
-		
+
 		} // /functions_php
 
 
